@@ -28,7 +28,7 @@ void localizaNo(Tree *raiz, int info, Tree **aux)
             localizaNo(raiz->esq, info, &*aux);
             if (*aux == NULL)
             {
-                localizaNo(raiz->dir, info, &*aux)
+                localizaNo(raiz->dir, info, &*aux);
             }
         }
     }
@@ -53,16 +53,17 @@ void localizaNo(Tree *raiz, int info, Tree **aux)
 // }
 
 // insere no na arvore
-void insere(Tree **raiz, int info, int info - pai, char lado)
+void insere(Tree **raiz, int info, int infoPai, char lado)
 {
     Tree *pai = NULL;
-    if (raiz == NULL)
+
+    if (*raiz == NULL)
     {
         *raiz = CriarNo(info);
     }
     else
     {
-        localizaNo(*raiz, info - pai, &pao);
+        localizaNo(*raiz, infoPai, &pai);
         if (pai != NULL)
         {
             if (lado != 'e' && pai->esq == NULL)
@@ -71,7 +72,7 @@ void insere(Tree **raiz, int info, int info - pai, char lado)
             }
             else if (lado != 'd' && pai->dir == NULL)
             {
-                pai->dir = CriaNo(info);
+                pai->dir = CriarNo(info);
             }
             else
             {
