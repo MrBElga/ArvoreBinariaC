@@ -115,3 +115,13 @@ void PosOrd(Tree *raiz)
 		printf("%d\n",raiz->info);
 	}
 }
+
+void PosOrdFree(Tree **raiz)
+{
+	if(*raiz != NULL)
+	{
+		PosOrdFree(&(*raiz)->esq);
+		PosOrdFree(&(*raiz)->dir);
+		free(*raiz);
+	}
+}

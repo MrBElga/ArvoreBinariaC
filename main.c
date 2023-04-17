@@ -25,5 +25,11 @@ int main()
 	InOrd(raiz);
 	printf("\n## PosOrdem ##\n");
 	PosOrd(raiz);
+	
+	PosOrdFree(&raiz);
+	printf("\nprint apos free\n");
+		PosOrd(raiz);
+	
+	
     return 0;
 }
