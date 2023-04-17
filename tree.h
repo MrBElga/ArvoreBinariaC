@@ -66,11 +66,11 @@ void insere(Tree **raiz, int info, int infoPai, char lado)
         localizaNo(*raiz, infoPai, &pai);
         if (pai != NULL)
         {
-            if (lado != 'e' && pai->esq == NULL)
+            if (lado == 'e' && pai->esq == NULL)
             {
                 pai->esq = CriarNo(info);
             }
-            else if (lado != 'd' && pai->dir == NULL)
+            else if (lado == 'd' && pai->dir == NULL)
             {
                 pai->dir = CriarNo(info);
             }
@@ -84,4 +84,34 @@ void insere(Tree **raiz, int info, int infoPai, char lado)
             printf("Pai nao encontrado!!");
         }
     }
+}
+
+void preOrd(Tree *raiz)
+{
+	if(raiz != NULL)
+	{
+		printf("%d\n", raiz->info);
+		preOrd(raiz->esq);
+		preOrd(raiz->dir);
+	}
+}
+
+void InOrd(Tree *raiz)
+{
+	if(raiz != NULL)
+	{
+		InOrd(raiz->esq);
+		printf("%d\n", raiz->info);
+		InOrd(raiz->dir);
+	}
+}
+
+void PosOrd(Tree *raiz)
+{
+	if(raiz != NULL)
+	{
+		PosOrd(raiz->esq);
+		PosOrd(raiz->dir);
+		printf("%d\n",raiz->info);
+	}
 }
