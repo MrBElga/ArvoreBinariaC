@@ -124,4 +124,5 @@ void PosOrdFree(Tree **raiz)
 		PosOrdFree(&(*raiz)->dir);
 		free(*raiz);
 	}
+    *raiz = NULL;
 }
